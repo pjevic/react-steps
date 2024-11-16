@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState } from "react";
+import { Children, useState } from "react";
 
 const messages = [
   "Learn React ⚛️",
@@ -42,17 +42,22 @@ export default function App() {
 
           <div className="buttons">
             <Button
-              text="Previous"
               textColor="#fff"
               backgroundColor="#7950f2"
+              emoji="👈🏻"
               onClick={handlePrevious}
-            />
+            >
+              <span>👈🏻</span> Previous
+            </Button>
+
             <Button
-              text="Next"
               textColor="#fff"
               backgroundColor="#7950f2"
+              emoji="👉🏻"
               onClick={handleNext}
-            />
+            >
+              Next <span>👉🏻</span>
+            </Button>
           </div>
         </div>
       )}
@@ -60,13 +65,13 @@ export default function App() {
   );
 }
 
-function Button({ text, textColor, backgroundColor, onClick }) {
+function Button({ children, textColor, backgroundColor, onClick }) {
   return (
     <button
       style={{ color: textColor, backgroundColor: backgroundColor }}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 }
